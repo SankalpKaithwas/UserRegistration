@@ -13,6 +13,7 @@ namespace UserRegistration
             Console.WriteLine("Choose 4: Phone number validation");
             Console.WriteLine("Choose 5: Password validation Rule one");
             Console.WriteLine("Choose 6: Password validation Rule Two");
+            Console.WriteLine("Choose 7: Password validation Rule Three");
             try
             {
                 int options = int.Parse(Console.ReadLine());
@@ -47,6 +48,11 @@ namespace UserRegistration
                         Console.WriteLine("Enter Password: ");
                         input = Console.ReadLine();
                         userRegistration.ValidPasswordRuleTwo(input);
+                        break;
+                    case 7:
+                        Console.WriteLine("Enter Password: ");
+                        input = Console.ReadLine();
+                        userRegistration.ValidPasswordRuleThree(input);
                         break;
                     default:
                         Console.WriteLine("Choose From the Options given above");

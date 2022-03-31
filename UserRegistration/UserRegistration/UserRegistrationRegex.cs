@@ -13,6 +13,7 @@ namespace UserRegistration
         public Regex MobileNumber = new Regex(@"^[0-9]{2}\s[0-9]{10}$");
         public Regex PasswordRuleOne = new Regex(@"^[A-Za-z]{8,}$");
         public Regex PasswordRuleTwo = new Regex(@"^[A-Z][A-Za-z]{7,}$");
+        public Regex PasswordRuleThree = new Regex(@"^[A-Z][A-Za-z]{6,}[0-9]{1,}$");
         public void ValidFirstName(string firstName)
         {
             Console.WriteLine("First name - " + firstName);
@@ -58,6 +59,14 @@ namespace UserRegistration
         {
             Console.WriteLine("Password - " + password);
             if (PasswordRuleTwo.IsMatch(password))
+                Console.WriteLine($"{password} is valid");
+            else
+                Console.WriteLine($"{password} is Invalid");
+        }
+        public void ValidPasswordRuleThree(string password)
+        {
+            Console.WriteLine("Password - " + password);
+            if (PasswordRuleThree.IsMatch(password))
                 Console.WriteLine($"{password} is valid");
             else
                 Console.WriteLine($"{password} is Invalid");
