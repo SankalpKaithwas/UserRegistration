@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace UserRegistration
@@ -14,6 +12,7 @@ namespace UserRegistration
         public Regex PasswordRuleOne = new Regex(@"^[A-Za-z]{8,}$");
         public Regex PasswordRuleTwo = new Regex(@"^[A-Za-z]*[A-Z]{1,}[A-Za-z]*$");
         public Regex PasswordRuleThree = new Regex(@"^[A-Za-z 0-9]{1,}[A-Z]{1,}[A-Za-z 0-9]*$");
+        public Regex PasswordRuleFour = new Regex("[A-Z][0-9][!@#$%^&*()_+=-]{1}[a-zA-Z0-9!@#$%^&*()_+=-]{8,}$");
 
         public void ValidFirstName(string firstName)
         {
@@ -68,6 +67,13 @@ namespace UserRegistration
         {
             Console.WriteLine("Password - " + password);
             if (PasswordRuleThree.IsMatch(password))
+                Console.WriteLine($"{password} is valid");
+            else
+                Console.WriteLine($"{password} is Invalid");
+        }
+        public void ValidPasswordRuleFour(string password)
+        {
+            if (PasswordRuleFour.IsMatch(password))
                 Console.WriteLine($"{password} is valid");
             else
                 Console.WriteLine($"{password} is Invalid");
