@@ -10,6 +10,7 @@ namespace UserRegistration
         public Regex FirstName = new Regex(@"^[A-Z][A-Za-z]{2,}$");
         public Regex LastName = new Regex(@"^[A-Z][A-Za-z]{2,}$");
         public Regex Email = new Regex(@"^[A-Za-z]+([.+-][A-Za-z 0-9]+)*@[A-Za-z 0-9]+.[A-Za-z]([.[A-Za-z]{2,})?$");
+        public Regex MobileNumber = new Regex(@"^[0-9]{2}\s[0-9]{10}$");
         public void ValidFirstName(string firstName)
         {
             Console.WriteLine("First name - " + firstName);
@@ -34,6 +35,14 @@ namespace UserRegistration
                 Console.WriteLine($"{email} is valid");
             else
                 Console.WriteLine($"{email} is Invalid");
+        }
+        public void ValidMobile(string mobile)
+        {
+            Console.WriteLine("Mobile number - " + mobile);
+            if (MobileNumber.IsMatch(mobile))
+                Console.WriteLine($"{mobile} is valid");
+            else
+                Console.WriteLine($"{mobile} is Invalid");
         }
     }
 }
