@@ -12,7 +12,10 @@ namespace UserRegistration
             userRegistration.ValidFirstName(input);
             Console.WriteLine("Enter your Last Name: ");
             input = Console.ReadLine();
-            userRegistration.ValidFirstName(input);
+            userRegistration.ValidLastName(input);
+            Console.WriteLine("Enter your Email: ");
+            input = Console.ReadLine();
+            userRegistration.ValidEmail(input);
         }
     }
 }
