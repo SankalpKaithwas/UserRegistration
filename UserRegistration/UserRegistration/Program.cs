@@ -11,6 +11,7 @@ namespace UserRegistration
             Console.WriteLine("Choose 2: Last name validation");
             Console.WriteLine("Choose 3: Email validation");
             Console.WriteLine("Choose 4: Phone number validation");
+            Console.WriteLine("Choose 5: Password validation");
             int options = int.Parse(Console.ReadLine());
             switch (options)
             {
@@ -33,6 +34,10 @@ namespace UserRegistration
                     Console.WriteLine("Enter your Mobile Number: ");
                     input = Console.ReadLine();
                     userRegistration.ValidMobile(input);
+                    break;
+                case 5: Console.WriteLine("Enter Password: ");
+                    input = Console.ReadLine();
+                    userRegistration.ValidPasswordRuleOne(input);
                     break;
                 default:
                     Console.WriteLine("Choose valid Option");
