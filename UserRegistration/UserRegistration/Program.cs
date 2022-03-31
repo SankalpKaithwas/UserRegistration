@@ -9,7 +9,7 @@ namespace UserRegistration
             UserRegistrationRegex userRegistration = new UserRegistrationRegex();
             Console.WriteLine("Enter your first Name: ");
             string input = Console.ReadLine();
-            userRegistration.ValidLastName(input);
+            userRegistration.ValidFirstName(input);
 
         }
     }
