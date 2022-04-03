@@ -9,10 +9,10 @@ namespace UserRegistration
         public Regex LastName = new Regex(@"^[A-Z][A-Za-z]{2,}$");
         public Regex Email = new Regex(@"^[A-Za-z]+([.+-][A-Za-z 0-9]+)*@[A-Za-z 0-9]+.[A-Za-z]([.[A-Za-z]{2,})?$");
         public Regex MobileNumber = new Regex(@"^[0-9]{2}\s[0-9]{10}$");
-        public Regex PasswordRuleOne = new Regex(@"^[A-Za-z]{8,}$");
-        public Regex PasswordRuleTwo = new Regex(@"^[A-Za-z]*[A-Z]{1,}[A-Za-z]*$");
-        public Regex PasswordRuleThree = new Regex(@"^[A-Za-z 0-9]{1,}[A-Z]{1,}[A-Za-z 0-9]*$");
-        public Regex PasswordRuleFour = new Regex("[A-Z][0-9][!@#$%^&*()_+=-]{1}[a-zA-Z0-9!@#$%^&*()_+=-]{8,}$");
+        public Regex PasswordMinEightChars = new Regex(@"^[A-Za-z]{8,}$");
+        public Regex PasswordAtLeastOneUpperCase = new Regex(@"^[A-Za-z]*[A-Z]{1,}[A-Za-z]*$");
+        public Regex PasswordAtLeastOneNumber = new Regex(@"^[A-Za-z 0-9]{1,}[A-Z]{1,}[A-Za-z 0-9]*$");
+        public Regex PasswordOneSpecialChar = new Regex("[A-Z][0-9][!@#$%^&*()_+=-]{1}[a-zA-Z0-9!@#$%^&*()_+=-]{8,}$");
 
         public void ValidFirstName(string firstName)
         {
@@ -21,6 +21,7 @@ namespace UserRegistration
                 Console.WriteLine($"{firstName} is valid");
             else
                 Console.WriteLine($"{firstName} is Invalid");
+
         }
 
         public void ValidLastName(string lastName)
@@ -50,7 +51,7 @@ namespace UserRegistration
         public void ValidPasswordRuleOne(string password)
         {
             Console.WriteLine("Password - " + password);
-            if (PasswordRuleOne.IsMatch(password))
+            if (PasswordMinEightChars.IsMatch(password))
                 Console.WriteLine($"{password} is valid");
             else
                 Console.WriteLine($"{password} is Invalid");
@@ -58,7 +59,7 @@ namespace UserRegistration
         public void ValidPasswordRuleTwo(string password)
         {
             Console.WriteLine("Password - " + password);
-            if (PasswordRuleTwo.IsMatch(password))
+            if (PasswordAtLeastOneUpperCase.IsMatch(password))
                 Console.WriteLine($"{password} is valid");
             else
                 Console.WriteLine($"{password} is Invalid");
@@ -66,14 +67,14 @@ namespace UserRegistration
         public void ValidPasswordRuleThree(string password)
         {
             Console.WriteLine("Password - " + password);
-            if (PasswordRuleThree.IsMatch(password))
+            if (PasswordAtLeastOneNumber.IsMatch(password))
                 Console.WriteLine($"{password} is valid");
             else
                 Console.WriteLine($"{password} is Invalid");
         }
         public void ValidPasswordRuleFour(string password)
         {
-            if (PasswordRuleFour.IsMatch(password))
+            if (PasswordOneSpecialChar.IsMatch(password))
                 Console.WriteLine($"{password} is valid");
             else
                 Console.WriteLine($"{password} is Invalid");
