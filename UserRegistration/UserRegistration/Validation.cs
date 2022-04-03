@@ -17,11 +17,11 @@ namespace UserRegistration
         public Regex PasswordAtLeastOneNumber = new Regex(@"^[A-Za-z 0-9]{1,}[A-Z]{1,}[A-Za-z 0-9]*$");
         public Regex PasswordOneSpecialChar = new Regex("[A-Z][0-9][!@#$%^&*()_+=-]{1}[a-zA-Z0-9!@#$%^&*()_+=-]{8,}$");
 
-       
+
         public string ValidFirstName(string firstName)
         {
-            bool result = false;
-            if (FirstName.IsMatch(firstName)) { result= true; } 
+            bool FirstNamePattern(string FirstNamePattern) => FirstName.IsMatch(firstName);
+            bool result = FirstNamePattern(firstName);
             try
             {
                 if (result == false)
@@ -55,8 +55,8 @@ namespace UserRegistration
         }
         public string ValidLastName(string lastName)
         {
-            bool result = false;
-            if (LastName.IsMatch(lastName)) { result = true; }
+            bool LastNamePattern(string LastNamePattern) => LastName.IsMatch(lastName);
+            bool result = LastNamePattern(lastName);
             try
             {
                 if (result == false)
@@ -90,8 +90,8 @@ namespace UserRegistration
         }
         public string ValidEmail(string email)
         {
-            bool result = false;
-            if (Email.IsMatch(email)) { result = true; }
+            bool EmailPattern(string EmailPattern) => Email.IsMatch(EmailPattern);
+            bool result = EmailPattern(email);
             try
             {
                 if (result == false)
@@ -122,8 +122,8 @@ namespace UserRegistration
         }
         public string ValidPhoneNumber(string phoneNumber)
         {
-            bool result = false;
-            if (MobileNumber.IsMatch(phoneNumber)) { result = true; }
+            bool PhoneNumber(string PhoneNumber) => MobileNumber.IsMatch(PhoneNumber);
+            bool result = PhoneNumber(phoneNumber);
             try
             {
                 if (result == false)
@@ -149,8 +149,8 @@ namespace UserRegistration
 
         public string ValidPasswordEightChars(string password)
         {
-            bool result = false;
-            if (PasswordMinEightChars.IsMatch(password)) { result = true; }
+            bool Password(string Password) => PasswordMinEightChars.IsMatch(Password);
+            bool result = Password(password);
             try
             {
                 if (result == false)
@@ -219,7 +219,7 @@ namespace UserRegistration
 
         public string ValidPasswordAtLeastOneSpecialChar(string password)
         {
-            bool Password(string Password) => PasswordAtLeastOneNumber.IsMatch(Password);
+            bool Password(string Password) => PasswordOneSpecialChar.IsMatch(Password);
             bool result = Password(password);
             try
             {
